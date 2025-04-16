@@ -1,5 +1,6 @@
 import { Body, Controller, Inject } from '@nestjs/common';
 import { ClientProxy, MessagePattern } from '@nestjs/microservices';
+import { successResponse } from 'src/common/helperFunctions/response.helper';
 import { syncYachtDto } from 'src/dtos/yacht.dto';
 import { YachtsService } from 'src/yacht/service/yachts/yachts.service';
 
@@ -16,7 +17,11 @@ export class YachtsController {
     }
     @MessagePattern({ cmd: 'getYachts' })
     async getAllYachts() {
-        const createYacht = await this.yachtService.getAllYachts()
-        return createYacht;
+        const yachts = await this.yachtService.getAllYachts()
+        return successResponse({
+            status: 200,
+            message: "Get all yachts Succeed",
+            data: yachts
+        });
     }
 }
