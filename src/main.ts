@@ -4,7 +4,7 @@ import { MicroserviceOptions, Transport } from '@nestjs/microservices';
 import { AllExceptionsFilter } from './intercepters/error.interceptor';
 
 async function bootstrap() {
-  console.log('user server is listning')
+  console.log('yacht server is listning')
   const app = await NestFactory.createMicroservice<MicroserviceOptions>(
     AppModule,
     {

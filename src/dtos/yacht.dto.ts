@@ -1,4 +1,4 @@
-import { IsNotEmpty } from "class-validator";
+import { IsNotEmpty, IsOptional } from "class-validator";
 
 export class syncYachtDto {
 
@@ -11,4 +11,31 @@ export class syncYachtDto {
     @IsNotEmpty()
     password: string;
 
+}
+export class getAllYachtsDto {
+
+    @IsNotEmpty()
+    page: number;
+    
+    @IsNotEmpty()
+    limit: number;
+
+}
+export class getYachtDetailDto {
+
+    @IsNotEmpty()
+    id: number;
+    
+}
+export class getFilteredYachtDto {
+
+    @IsNotEmpty()
+    page: number;
+    
+    @IsNotEmpty()
+    limit: number;
+
+    @IsOptional()
+    locationId: number;
+    
 }
