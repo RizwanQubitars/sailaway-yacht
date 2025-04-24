@@ -124,8 +124,6 @@ export class YachtsService {
       throw new Error(`Sync failed: ${error.message}`);
     }
   }
-
-
   async getAllYachts(query: any) {
 
     const page = query.page || 1;
@@ -190,7 +188,11 @@ export class YachtsService {
     if (query.locationId) filterQuery.locationId = Number(query.locationId)
     if (query.noOfCabin) filterQuery.cabins = Number(query.noOfCabin)
     if (query.noOfBirth) filterQuery.berthsTotal = Number(query.noOfBirth)
-      
+      filterQuery.buildYear = {
+        $gte: Number(query.constractionFrom),
+        $lte: Number(query.constractionTo)
+      };
+
     let [yachts, totalCount] = await Promise.all([
       this.yachtModel
         .find(filterQuery)

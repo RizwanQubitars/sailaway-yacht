@@ -43,5 +43,11 @@ export class getFilteredYachtDto {
 
     @IsOptional()
     noOfBirth: number;
+
+    @IsOptional()
+    constractionFrom: number;
+    
+    @IsOptional()
+    constractionTo: number;
     
 }
