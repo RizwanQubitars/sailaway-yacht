@@ -37,5 +37,11 @@ export class getFilteredYachtDto {
 
     @IsOptional()
     locationId: number;
+
+    @IsOptional()
+    noOfCabin: number;
+
+    @IsOptional()
+    noOfBirth: number;
     
 }
